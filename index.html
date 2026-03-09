@@ -160,6 +160,7 @@ footer a{color:var(--accent-light);text-decoration:none}
   .cta-btn{padding:16px 32px;font-size:17px}
   .pricing-section{padding:40px 16px}
 }
+
 </style>
 </head>
 <body>
@@ -169,6 +170,9 @@ footer a{color:var(--accent-light);text-decoration:none}
   <span>⚡</span> Oferta por tempo limitado — Garanta seu exemplar com <span>desconto exclusivo</span>
 </div>
 
+<a href="#comprar" class="botao-flutuante" id="floatingCTA">
+  QUERO ADQUIRIR
+</a>
 <!-- Hero Section -->
 <section class="hero">
   <div class="container">
@@ -203,8 +207,8 @@ footer a{color:var(--accent-light);text-decoration:none}
 <!-- Pain Points -->
 <section class="section section-white">
   <div class="container">
-    <h2 class="section-title">Você se identifica com <span>alguma dessas situações</span>?</h2>
-    <p class="section-desc">Se pelo menos uma delas faz parte do seu dia a dia, este ebook foi feito para você.</p>
+    <h2 class="section-title">Você chega em casa mas sua <span>mente continua trabalhando</span>?</h2>
+    <p class="section-desc">Se pelo menos uma dessas causas fazem parte do seu dia a dia, este ebook foi feito para você.</p>
     <div class="pain-grid">
       <div class="pain-card">
         <span class="pain-icon">😰</span>
@@ -424,8 +428,8 @@ footer a{color:var(--accent-light);text-decoration:none}
       <p class="price-installments">ou 4x de R$ 10,18 sem juros</p>
       <div class="price-divider"></div>
       <ul class="price-includes">
-        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Ebook completo "O Poder de Soltar" (10 capitulos)</li>
-        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Metodo passo a passo de 10 minutos</li>
+        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Ebook "O Poder de Desligar a Mente." (10 capitulos)</li>
+        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Metodo passo a passo de 10 minutos em PDF</li>
         <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Exercicios praticos para cada etapa</li>
         <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Acesso imediato apos a compra</li>
         <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Compativel com celular, tablet e PC</li>
@@ -512,6 +516,73 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a){
     }
   });
 });
+
+// BOTÃO FLUTUANTE
+document.addEventListener("DOMContentLoaded", function(){
+
+  const floatingBtn = document.getElementById("floatingCTA");
+
+  const heroBtn = document.querySelector('.hero .cta-btn');
+  const priceBtn = document.querySelector('#comprar .cta-btn');
+  const finalBtn = document.querySelector('.final-cta .cta-btn');
+
+  function elementVisible(el){
+      if(!el) return false;
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+  }
+
+  function checkButtons(){
+
+      const heroVisible = elementVisible(heroBtn);
+      const priceVisible = elementVisible(priceBtn);
+      const finalVisible = elementVisible(finalBtn);
+
+      if(heroVisible || priceVisible || finalVisible){
+          floatingBtn.classList.add("hide");
+      }else{
+          floatingBtn.classList.remove("hide");
+      }
+
+  }
+
+  window.addEventListener("scroll", checkButtons);
+
+  checkButtons();
+
+});
+// BOTÃO FLUTUANTE
 </script>
+
+
 </body>
+
+<style>
+.botao-flutuante{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#16a34a;
+  color:white;
+  padding:16px 36px;
+  font-size:18px;
+  font-weight:800;
+  text-decoration:none;
+  border-radius:50px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.25);
+  z-index:9999;
+  transition:all .3s ease;
+}
+
+.botao-flutuante.hide{
+  opacity:0;
+  pointer-events:none;
+}
+
+.botao-flutuante:hover{
+  background:#15803d;
+}
+</style>
+
 </html>
