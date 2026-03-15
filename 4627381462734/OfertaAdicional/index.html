@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espere! Uma oferta especial para você — Clareza Mental</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0f2240;
+      --teal:   #1a6b72;
+      --teal2:  #22909a;
+      --mint:   #d4f0ed;
+      --sky:    #e8f4f8;
+      --gold:   #c8973a;
+      --gold2:  #f0c060;
+      --white:  #ffffff;
+      --off:    #f4f8f9;
+      --text:   #1c2e3a;
+      --muted:  #5a7a8a;
+      --danger: #c0392b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--off);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── URGENCY BAR ── */
+    .bar {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .3px;
+    }
+    .bar span { color: var(--gold2); font-weight: 700; }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--teal) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 48px 24px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 20%, rgba(255,255,255,.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 40px;
+      padding: 6px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      backdrop-filter: blur(4px);
+    }
+    .confirm-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .check-circle {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: #27ae60;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      animation: popIn .5s cubic-bezier(.34,1.56,.64,1) forwards;
+    }
+    @keyframes popIn {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    .check-circle svg { width: 18px; height: 18px; }
+    .confirm-text { font-size: 15px; opacity: .9; }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 6vw, 38px);
+      line-height: 1.2;
+      max-width: 560px;
+      margin: 0 auto 16px;
+    }
+    h1 em { font-style: italic; color: var(--gold2); }
+
+    .hero-sub {
+      font-size: 16px;
+      opacity: .85;
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── BRIDGE ── */
+    .bridge {
+      background: var(--white);
+      border-left: 4px solid var(--teal2);
+      margin: 28px 20px;
+      border-radius: 0 12px 12px 0;
+      padding: 18px 20px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .bridge strong { color: var(--teal); }
+
+    /* ── SECTION ── */
+    .section { padding: 0 20px; margin-bottom: 28px; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* ── BENEFITS ── */
+    .benefits { display: flex; flex-direction: column; gap: 12px; }
+    .benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: var(--white);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.05);
+      animation: slideUp .4s ease both;
+    }
+    .benefit:nth-child(1) { animation-delay: .05s; }
+    .benefit:nth-child(2) { animation-delay: .10s; }
+    .benefit:nth-child(3) { animation-delay: .15s; }
+    .benefit:nth-child(4) { animation-delay: .20s; }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .benefit-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: var(--mint);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .benefit-body strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+    .benefit-body span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ── PRODUCT CARD ── */
+    .product-card {
+      background: linear-gradient(145deg, var(--navy) 0%, var(--teal) 100%);
+      border-radius: 20px;
+      padding: 28px 24px;
+      color: var(--white);
+      margin: 0 20px 28px;
+      box-shadow: 0 8px 32px rgba(15,34,64,.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::after {
+      content: '';
+      position: absolute;
+      top: -40px; right: -40px;
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.05);
+    }
+    .product-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+    .product-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .product-card p {
+      font-size: 14px;
+      opacity: .85;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .includes li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      opacity: .9;
+    }
+    .includes li::before {
+      content: '✦';
+      color: var(--gold2);
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ── URGENCY ── */
+    .urgency {
+      margin: 0 20px 28px;
+      background: #fff8ee;
+      border: 1.5px solid #f0c060;
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .urgency-icon { font-size: 26px; flex-shrink: 0; }
+    .urgency-text strong {
+      display: block;
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .urgency-text span { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ── PRICE ── */
+    .price-block {
+      text-align: center;
+      margin: 0 20px 8px;
+    }
+    .price-old {
+      font-size: 14px;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-bottom: 2px;
+    }
+    .price-new {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .price-new sup { font-size: 20px; vertical-align: super; }
+    .price-installment {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── CTA ── */
+    .cta-wrap { padding: 0 20px 12px; }
+
+    .btn-yes {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      padding: 18px 24px;
+      border-radius: 14px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(39,174,96,.35);
+      transition: transform .15s, box-shadow .15s;
+      text-decoration: none;
+      letter-spacing: .3px;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-yes::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(255,255,255,.1), transparent);
+      pointer-events: none;
+    }
+    .btn-yes:active { transform: scale(.98); }
+    .btn-yes small {
+      display: block;
+      font-size: 12px;
+      font-weight: 400;
+      opacity: .85;
+      margin-top: 3px;
+    }
+
+    .btn-no {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 14px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-no:hover { color: var(--danger); }
+
+    /* ── GUARANTEE ── */
+    .guarantee {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 0 20px 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .guarantee-icon { font-size: 28px; flex-shrink: 0; }
+    .guarantee-text { font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .guarantee-text strong { color: var(--text); font-size: 13px; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 11px;
+      color: var(--muted);
+      border-top: 1px solid #e0eaee;
+    }
+
+    /* ── PULSE animation on CTA ── */
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 6px 20px rgba(39,174,96,.35); }
+      50%        { box-shadow: 0 6px 32px rgba(39,174,96,.65); }
+    }
+    .btn-yes { animation: pulse 2.5s ease-in-out infinite; }
+
+    /* Timer */
+    .timer-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 20px 28px;
+    }
+    .timer-box {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 10px 14px;
+      text-align: center;
+      min-width: 60px;
+    }
+    .timer-num {
+      font-size: 28px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+    .timer-label { font-size: 10px; opacity: .6; text-transform: uppercase; letter-spacing: .5px; margin-top: 2px; }
+    .timer-sep { font-size: 24px; color: var(--navy); font-weight: 700; align-self: center; margin-bottom: 14px; }
+
+    #floating-buy{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg,#27ae60,#1e8449);
+  color: white;
+  text-align: center;
+  padding: 16px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow: 0 -4px 20px rgba(0,0,0,.2);
+  transition: transform .3s ease, opacity .3s ease;
+}
+
+#floating-buy.hide{
+  opacity:0;
+  transform:translateY(100%);
+}
+  </style>
+</head>
+
+<body>
+
+    <!-- BOTÃO FLUTUANTE -->
+<a href="#main-buy-btn" id="floating-buy">
+  Comprar Agora
+</a>
+
+  <!-- URGENCY BAR -->
+  <div class="bar">
+    ⚡ Esta oferta expira em <span id="bar-timer">10:00</span> — exclusiva para quem acabou de comprar
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">✦ Oferta exclusiva pós-compra</div>
+    <div class="confirm-row">
+      <div class="check-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <div class="confirm-text">Seu pedido foi confirmado! 🎉</div>
+    </div>
+    <h1>Mas antes de sair…<br><em>sua mente merece o passo final.</em></h1>
+    <p class="hero-sub">Você já deu o primeiro passo. Agora existe um jeito de chegar lá <strong style="color:#d4f0ed">2x mais rápido</strong>.</p>
+  </div>
+
+  <!-- BRIDGE -->
+  <div class="bridge">
+    O <strong>O Poder de Desligar a Mente</strong> vai transformar sua relação com os pensamentos. Mas para quem quer resultados ainda mais rápidos, criamos algo que vai direto ao ponto:<br><br>
+    <strong>Áudios guiados</strong> que você usa enquanto lê — e já sente a diferença na primeira noite.
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="section">
+    <div class="section-title">O que você ganha com isso</div>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-icon">🎧</div>
+        <div class="benefit-body">
+          <strong>7 Áudios Guiados para Silenciar a Mente</strong>
+          <span>Ouça antes de dormir e desligue os pensamentos em minutos — sem esforço, sem técnica complicada.</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">📅</div>
+        <div class="benefit-body">
+          <strong>Rotina de 7 Dias para Reprogramar Pensamentos</strong>
+          <span>Um plano diário simples que consolida o método do ebook e cria o hábito de vez um audio para cada dia da semana.</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🧠</div>
+        <div class="benefit-body">
+          <strong>Técnicas Avançadas Anti-Ruminação</strong>
+          <span>Exercícios específicos para interromper pensamentos repetitivos no momento em que aparecem.</span>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">⚡</div>
+        <div class="benefit-body">
+          <strong>Resultados acelerados desde o 1º dia</strong>
+          <span>A combinação ebook + áudios + rotina é o trio que leva quem realmente quer transformação.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARD -->
+  <div class="product-card">
+    <div class="product-tag">Kit Completo</div>
+    <h2>O Poder de Desligar a Mente:<br>Modo Intensivo</h2>
+    <p>O complemento criado especialmente para potencializar o ebook que você acabou de adquirir.</p>
+    <ul class="includes">
+      <li>7 áudios guiados (formato MP3, acesso imediato)</li>
+      <li>Você vai ter um avanço significativo com essa combinação</li>
+      <li>Técnicas avançadas anti-ruminação</li>
+    </ul>
+  </div>
+
+  <!-- TIMER -->
+  <div class="section" style="text-align:center; margin-bottom: 8px;">
+    <p style="font-size:13px; color:var(--muted); margin-bottom:14px;">⏳ Esta oferta desaparece em:</p>
+  </div>
+  <div class="timer-row">
+    <div class="timer-box">
+      <div class="timer-num" id="t-min">10</div>
+      <div class="timer-label">min</div>
+    </div>
+    <div class="timer-sep">:</div>
+    <div class="timer-box">
+      <div class="timer-num" id="t-sec">00</div>
+      <div class="timer-label">seg</div>
+    </div>
+  </div>
+
+  <!-- URGENCY -->
+  <div class="urgency">
+    <div class="urgency-icon">🔒</div>
+    <div class="urgency-text">
+      <strong>Esta oferta só aparece uma vez</strong>
+      <span>Ela não estará disponível no site. Não voltará por e-mail. Este é o único momento para adquirir o Kit Completo com este desconto especial.</span>
+    </div>
+  </div>
+
+  <!-- PRICE -->
+  <div class="price-block">
+    <div class="price-old">De R$ 67,00</div>
+    <div class="price-new"><sup>R$</sup>27<sup>,00</sup></div>
+    <div class="price-installment">ou 2x de R$ 13,90 sem juros</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap" style="margin-top:20px;">
+    <a href="#" class="btn-yes" id="main-buy-btn">
+      ✅ SIM, QUERO ADICIONAR AO MEU PEDIDO
+      <small>Acesso imediato · Pagamento 100% seguro</small>
+    </a>
+  </div>
+  <div class="cta-wrap">
+    <button class="btn-no" onclick="window.location.href='#'">
+      Não, prefiro continuar sem o kit intensivo
+    </button>
+  </div>
+
+  <!-- GUARANTEE -->
+  <div class="guarantee">
+    <div class="guarantee-icon">🛡️</div>
+    <div class="guarantee-text">
+      <strong>Garantia de 15 dias inclusa</strong><br>
+      Se não gostar por qualquer motivo, devolvemos 100% do valor. Sem perguntas.
+    </div>
+  </div>
+
+  <footer>
+    © Clareza Mental · Todos os direitos reservados<br>
+    Suporte: contato@clarezamental.com.br
+  </footer>
+
+  <script>
+
+const mainButton = document.getElementById("main-buy-btn");
+const floatingButton = document.getElementById("floating-buy");
+
+const observer = new IntersectionObserver(
+  (entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        floatingButton.classList.add("hide");
+      }else{
+        floatingButton.classList.remove("hide");
+      }
+    });
+  },
+  {threshold:0.3}
+);
+
+observer.observe(mainButton);
+
+
+// scroll suave
+floatingButton.addEventListener("click", function(e){
+  e.preventDefault();
+
+  mainButton.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+});
+
+</script>
+
+  <script>
+    // Countdown timer — 10 minutes
+    let total = 10 * 60;
+    const tMin = document.getElementById('t-min');
+    const tSec = document.getElementById('t-sec');
+    const barTimer = document.getElementById('bar-timer');
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+
+    const interval = setInterval(() => {
+      if (total <= 0) { clearInterval(interval); return; }
+      total--;
+      const m = Math.floor(total / 60);
+      const s = total % 60;
+      tMin.textContent = pad(m);
+      tSec.textContent = pad(s);
+      barTimer.textContent = `${pad(m)}:${pad(s)}`;
+
+      // Color urgency when < 2min
+      if (total < 120) {
+        document.querySelector('.timer-box:first-child').style.background = '#c0392b';
+        document.querySelectorAll('.timer-box')[1].style.background = '#c0392b';
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
