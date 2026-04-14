@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -17,14 +18,11 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1185585726805056&ev=PageView&noscript=1"
 /></noscript>
-
 <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
   data-utmify-prevent-subids
-  async
-  defer
-></script>
+  async defer></script>
 <!-- End Meta Pixel Code -->
 
 <meta charset="UTF-8">
@@ -33,266 +31,734 @@ src="https://www.facebook.com/tr?id=1185585726805056&ev=PageView&noscript=1"
 <meta name="description" content="Descubra o método de 10 minutos para parar a ruminação mental, soltar o passado e finalmente descansar a mente. Ebook digital por apenas R$19,90.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Bricolage Grotesque: headline forte e muito legível. Manrope: corpo de texto com excelente legibilidade -->
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',Arial,sans-serif;background:#f5f5f6;color:#333333;line-height:1.6;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Manrope',sans-serif;
+  background:#FAF8F4;
+  color:#2C2118;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
 img{max-width:100%;height:auto}
 
-/* Colors from PDF */
 :root{
-  --primary:#124def;
-  --primary-dark:#0e3bbf;
-  --primary-light:#3e6ef3;
-  --accent-light:#a1b8f9;
-  --accent-pale:#d0dbfb;
-  --bg:#f5f5f6;
-  --white:#ffffff;
-  --dark:#000000;
-  --text:#333333;
-  --text-light:#666666;
-  --success:#16a34a;
-  --warning:#f59e0b;
-  --urgency:#ef4444;
+  
+  --bg:       #FAF8F4; 
+  --bg2:      #F2EDE4;  
+  --dark:     #1E1810;  
+  --dark2:    #2A2118;
+  --text:     #2C2118;  
+  --muted:    #6B5E52;
+  --light:    #A89880;
+
+  
+  --cta:      #C8441A;
+  --cta-h:    #A83612;
+  --cta-glow: rgba(200,68,26,0.28);
+
+  
+  --amber:    #C97D20;
+  --amber-l:  #E8A444;
+
+ 
+  --sage:     #4A7A5A;
+  --sage-l:   #6B9E7A;
+  --sage-bg:  rgba(74,122,90,0.08);
+
+  --white:    #ffffff;
+  --border:   rgba(44,33,24,0.1);
+  --border2:  rgba(44,33,24,0.06);
 }
 
-/* Utility */
-.container{max-width:760px;margin:0 auto;padding:0 20px}
+.container{max-width:740px;margin:0 auto;padding:0 22px}
 
-/* Top Bar */
-.top-bar{background:var(--primary);color:var(--white);text-align:center;padding:10px 20px;font-size:14px;font-weight:600;letter-spacing:0.3px}
-.top-bar span{color:var(--warning)}
+/* ───────────────────────────────
+   ANNOUNCE BAR
+──────────────────────────────── */
+.announce{
+  background:var(--dark);
+  color:#FAF8F4;
+  text-align:center;
+  padding:11px 20px;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.3px;
+}
+.announce b{color:var(--amber-l);}
 
-/* Hero */
-.hero{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 50%,var(--accent-light) 100%);padding:60px 20px 50px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 40%,rgba(255,255,255,0.08) 0%,transparent 50%);pointer-events:none}
-.hero-badge{display:inline-block;background:rgba(255,255,255,0.2);color:var(--white);padding:6px 18px;border-radius:50px;font-size:13px;font-weight:600;margin-bottom:20px;backdrop-filter:blur(4px);letter-spacing:0.5px;text-transform:uppercase}
-.hero h1{font-size:clamp(28px,5vw,44px);color:var(--white);font-weight:900;line-height:1.15;margin-bottom:16px;max-width:650px;margin-left:auto;margin-right:auto}
-.hero h1 em{font-style:normal;color:var(--warning);display:inline}
-.hero-sub{font-size:clamp(16px,2.5vw,20px);color:rgba(255,255,255,0.9);max-width:560px;margin:0 auto 30px;font-weight:400;line-height:1.5}
-.hero-features{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:30px}
-.hero-feat{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);color:var(--white);padding:8px 16px;border-radius:8px;font-size:14px;font-weight:500;backdrop-filter:blur(4px)}
-.hero-feat svg{width:18px;height:18px;flex-shrink:0}
+/* ───────────────────────────────
+   HERO
+──────────────────────────────── */
+.hero{
+  background:var(--dark);
+  padding:72px 24px 64px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
 
-/* CTA Button */
-.cta-btn{display:inline-block;background:var(--success);color:var(--white);padding:18px 48px;font-size:20px;font-weight:800;border-radius:12px;text-decoration:none;text-transform:uppercase;letter-spacing:0.5px;box-shadow:0 4px 20px rgba(22,163,74,0.4);transition:all 0.3s ease;position:relative;overflow:hidden;border:none;cursor:pointer}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 28px rgba(22,163,74,0.5);background:#15803d}
-.cta-btn::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,0.15) 50%,transparent 70%);animation:shine 3s infinite}
-@keyframes shine{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-.cta-sub{display:block;font-size:13px;color:rgba(255,255,255,0.85);margin-top:12px;font-weight:400;text-align:center}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:1;
+}
 
-/* Urgency */
-.urgency-bar{background:var(--urgency);color:var(--white);text-align:center;padding:12px 20px;font-size:15px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px}
-.urgency-bar svg{width:20px;height:20px;animation:pulse 1.5s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
+.hero::after{
+  content:'';position:absolute;
+  top:0;left:50%;transform:translateX(-50%);
+  width:700px;height:280px;
+  background:radial-gradient(ellipse at 50% 0%,rgba(200,68,26,0.12) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;}
 
-/* Section */
-.section{padding:50px 20px}
-.section-white{background:var(--white)}
-.section-pale{background:var(--accent-pale)}
-.section-title{font-size:clamp(24px,4vw,34px);font-weight:800;text-align:center;color:var(--dark);margin-bottom:12px;line-height:1.2}
-.section-title span{color:var(--primary)}
-.section-desc{text-align:center;font-size:18px;color:var(--text-light);max-width:580px;margin:0 auto 40px;line-height:1.6}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(250,248,244,0.06);
+  border:1px solid rgba(250,248,244,0.14);
+  color:rgba(250,248,244,0.65);
+  padding:7px 18px;border-radius:100px;
+  font-size:12px;font-weight:500;letter-spacing:0.8px;
+  text-transform:uppercase;margin-bottom:28px;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--amber-l);flex-shrink:0;}
 
-/* Pain Points */
-.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:700px;margin:0 auto}
-.pain-card{background:var(--white);border-radius:12px;padding:24px;border-left:4px solid var(--urgency);box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.pain-card p{font-size:16px;color:var(--text);line-height:1.5}
-.pain-icon{font-size:28px;margin-bottom:10px;display:block}
+.hero h1{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(36px,6.5vw,62px);
+  font-weight:800;
+  line-height:1.05;
+  letter-spacing:-0.5px;
+  color:#FAF8F4;
+  margin-bottom:10px;
+}
+.hero h1 em{
+  font-style:normal;
+  
+  position:relative;
+  color:var(--amber-l);
+}
 
-/* Benefits */
-.benefits-list{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
-.benefit-item{display:flex;align-items:flex-start;gap:14px;background:var(--white);border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.benefit-check{width:28px;height:28px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-.benefit-check svg{width:16px;height:16px;color:var(--white)}
-.benefit-text h4{font-size:17px;font-weight:700;color:var(--dark);margin-bottom:4px}
-.benefit-text p{font-size:15px;color:var(--text-light);line-height:1.5}
+.hero-rule{
+  width:40px;height:2px;
+  background:var(--cta);
+  border-radius:2px;
+  margin:22px auto;
+  opacity:0.9;
+}
 
-/* Method Steps */
-.method-steps{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:0;position:relative}
-.method-steps::before{content:'';position:absolute;left:24px;top:30px;bottom:30px;width:3px;background:var(--accent-pale);border-radius:2px}
-.method-step{display:flex;align-items:flex-start;gap:20px;padding:18px 0;position:relative}
-.step-num{width:48px;height:48px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:20px;font-weight:800;flex-shrink:0;z-index:1;box-shadow:0 2px 10px rgba(18,77,239,0.3)}
-.step-content h4{font-size:18px;font-weight:700;color:var(--dark);margin-bottom:4px}
-.step-content p{font-size:15px;color:var(--text-light);line-height:1.5}
+.hero-sub{
+  font-size:clamp(16px,2.2vw,19px);
+  color:rgba(250,248,244,0.72);
+  max-width:500px;margin:0 auto 36px;
+  font-weight:400;line-height:1.7;
+}
 
-/* Testimonials */
-.testimonials{display:flex;flex-direction:column;gap:20px;max-width:640px;margin:0 auto}
-.testimonial{background:var(--white);border-radius:16px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,0.06);position:relative}
-.testimonial::before{content:'\201C';position:absolute;top:12px;left:20px;font-size:60px;color:var(--accent-pale);font-family:Georgia,serif;line-height:1}
-.testimonial-stars{color:var(--warning);font-size:18px;margin-bottom:10px;letter-spacing:2px}
-.testimonial-text{font-size:16px;color:var(--text);line-height:1.6;margin-bottom:14px;padding-left:8px;font-style:italic}
-.testimonial-author{display:flex;align-items:center;gap:12px}
-.author-avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent-light));display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:18px}
-.author-info{display:flex;flex-direction:column}
-.author-name{font-weight:700;font-size:15px;color:var(--dark)}
-.author-detail{font-size:13px;color:var(--text-light)}
-.verified{display:inline-flex;align-items:center;gap:4px;color:var(--success);font-size:12px;font-weight:600;margin-top:2px}
-.verified svg{width:14px;height:14px}
+.hero-pills{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+  margin-bottom:40px;
+}
+.hero-pill{
+  display:flex;align-items:center;gap:7px;
+  background:rgba(250,248,244,0.06);
+  border:1px solid rgba(250,248,244,0.1);
+  color:rgba(250,248,244,0.6);
+  padding:9px 18px;border-radius:6px;
+  font-size:13px;font-weight:500;
+}
+.pill-check{
+  width:16px;height:16px;border-radius:50%;
+  background:var(--sage);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.pill-check svg{width:9px;height:9px;}
 
-/* Stats */
-.stats-row{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;max-width:600px;margin:30px auto 0}
-.stat-item{text-align:center}
-.stat-num{font-size:32px;font-weight:900;color:var(--primary)}
-.stat-label{font-size:14px;color:var(--text-light);margin-top:2px}
 
-/* Pricing */
-.pricing-section{background:linear-gradient(180deg,var(--white) 0%,var(--accent-pale) 100%);padding:60px 20px}
-.price-card{max-width:480px;margin:0 auto;background:var(--white);border-radius:20px;padding:40px 30px;text-align:center;box-shadow:0 8px 40px rgba(18,77,239,0.12);border:2px solid var(--accent-light);position:relative;overflow:hidden}
-.price-card::before{content:'OFERTA ESPECIAL';position:absolute;top:18px;right:-35px;background:var(--urgency);color:var(--white);padding:6px 40px;font-size:11px;font-weight:700;transform:rotate(45deg);letter-spacing:1px}
-.price-label{font-size:16px;color:var(--text-light);margin-bottom:6px;font-weight:500}
-.price-old{font-size:26px;color:#999;text-decoration:line-through;font-weight:600;margin-bottom:8px}
-.price-new{font-size:56px;font-weight:900;color:var(--primary);line-height:1}
-.price-new small{font-size:24px;vertical-align:super}
-.price-new .currency{font-size:28px;vertical-align:super}
-.price-installments{font-size:16px;color:var(--text-light);margin:8px 0 24px;font-weight:500}
-.price-divider{width:60px;height:3px;background:var(--accent-light);border-radius:2px;margin:0 auto 24px}
-.price-includes{text-align:left;margin-bottom:28px}
-.price-includes li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text);padding:8px 0;border-bottom:1px solid #f0f0f0}
-.price-includes li:last-child{border-bottom:none}
-.price-includes li svg{width:20px;height:20px;color:var(--success);flex-shrink:0}
-.price-includes li{list-style:none}
-.guarantee{display:flex;align-items:center;gap:12px;background:#f0fdf4;border-radius:12px;padding:16px;margin-top:24px;text-align:left}
-.guarantee svg{width:40px;height:40px;flex-shrink:0;color:var(--success)}
-.guarantee-text{font-size:14px;color:var(--text)}
-.guarantee-text strong{color:var(--success)}
+.cta-btn{
+  display:inline-block;
+  background:var(--cta);
+  color:#fff;
+  padding:19px 52px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:0.2px;
+  text-decoration:none;
+  border-radius:8px;
+  border:none;cursor:pointer;
+  box-shadow:0 4px 24px var(--cta-glow), 0 1px 2px rgba(0,0,0,0.15);
+  transition:background .2s, transform .15s, box-shadow .2s;
+  position:relative;overflow:hidden;
+}
+.cta-btn::after{
+  content:'';position:absolute;
+  top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent);
+  animation:shine 3.5s infinite;
+}
+@keyframes shine{0%{left:-100%}100%{left:200%}}
+.cta-btn:hover{
+  background:var(--cta-h);
+  transform:translateY(-2px);
+  box-shadow:0 8px 32px var(--cta-glow);
+}
+.cta-btn:active{transform:translateY(0);}
 
-/* FAQ */
-.faq-list{max-width:620px;margin:0 auto}
-.faq-item{background:var(--white);border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,0.04)}
-.faq-q{padding:20px 24px;font-weight:700;font-size:16px;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center}
-.faq-q::after{content:'+';font-size:22px;color:var(--primary);font-weight:300;transition:transform 0.3s}
-.faq-item.open .faq-q::after{transform:rotate(45deg)}
-.faq-a{padding:0 24px 20px;font-size:15px;color:var(--text-light);line-height:1.6;display:none}
-.faq-item.open .faq-a{display:block}
+.cta-sub{
+  display:block;margin-top:14px;
+  font-size:12px;color:rgba(250,248,244,0.4);
+  letter-spacing:0.3px;
+}
 
-/* Final CTA */
-.final-cta{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);padding:60px 20px;text-align:center}
-.final-cta h2{color:var(--white);font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:14px}
-.final-cta p{color:rgba(255,255,255,0.85);font-size:18px;max-width:520px;margin:0 auto 30px}
 
-/* Footer */
-footer{background:#0a0a0a;color:#888;text-align:center;padding:30px 20px;font-size:13px;line-height:1.8}
-footer a{color:var(--accent-light);text-decoration:none}
+.proof-strip{
+  background:var(--bg2);
+  border-bottom:1px solid var(--border);
+  padding:18px 24px;
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:8px 32px;
+}
+.proof-item{
+  display:flex;align-items:center;gap:8px;
+  font-size:14px;color:var(--muted);font-weight:500;
+}
+.proof-num{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:20px;font-weight:700;color:var(--text);
+}
 
-/* Mobile */
+.urgency-bar{
+  background:#FEF3ED;
+  border-top:1px solid rgba(200,68,26,0.15);
+  border-bottom:1px solid rgba(200,68,26,0.15);
+  padding:13px 20px;
+  text-align:center;
+  font-size:14px;
+  color:#7A2A10;
+  font-weight:500;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.urgency-bar strong{font-weight:700;}
+.pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cta);animation:pulseAnim 1.6s infinite;}
+@keyframes pulseAnim{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(0.8)}}
+
+
+.section{padding:72px 24px;border-bottom:1px solid var(--border2);}
+.s-light{background:var(--bg);}
+.s-warm{background:var(--bg2);}
+.s-dark{background:var(--dark);border-color:rgba(250,248,244,0.06);}
+.s-dark2{background:var(--dark2);border-color:rgba(250,248,244,0.06);}
+
+.s-eyebrow{
+  display:block;text-align:center;
+  font-size:11px;font-weight:600;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--cta);
+  margin-bottom:14px;
+}
+.s-dark .s-eyebrow, .s-dark2 .s-eyebrow{color:var(--amber-l);}
+
+.s-title{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(28px,4.5vw,44px);
+  font-weight:800;
+  text-align:center;
+  line-height:1.1;
+  letter-spacing:-0.3px;
+  color:var(--text);
+  margin-bottom:12px;
+}
+.s-dark .s-title, .s-dark2 .s-title{color:#FAF8F4;}
+.s-title em{font-style:normal;color:var(--cta);}
+.s-dark .s-title em, .s-dark2 .s-title em{color:var(--amber-l);}
+
+.s-rule{width:36px;height:3px;background:var(--cta);border-radius:2px;margin:18px auto 40px;}
+.s-dark .s-rule, .s-dark2 .s-rule{background:var(--amber);}
+
+.s-desc{
+  text-align:center;font-size:17px;
+  color:var(--muted);max-width:520px;
+  margin:0 auto 52px;
+  font-weight:400;line-height:1.72;
+}
+.s-dark .s-desc, .s-dark2 .s-desc{color:rgba(250,248,244,0.55);}
+
+.pain-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:16px;max-width:700px;margin:0 auto;
+}
+.pain-card{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:28px 24px;
+  border-left:3px solid var(--cta);
+  transition:box-shadow .2s, transform .2s;
+}
+.pain-card:hover{
+  box-shadow:0 6px 24px rgba(44,33,24,0.08);
+  transform:translateY(-2px);
+}
+.pain-icon{font-size:26px;margin-bottom:14px;display:block;}
+.pain-card h4{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:17px;font-weight:700;
+  color:var(--text);margin-bottom:7px;
+}
+.pain-card p{font-size:14px;color:var(--muted);line-height:1.65;font-weight:400;}
+
+
+.method-list{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:0;position:relative;}
+.method-list::before{
+  content:'';position:absolute;left:23px;top:46px;bottom:46px;
+  width:2px;background:rgba(250,248,244,0.07);
+}
+.method-step{
+  display:flex;align-items:flex-start;gap:22px;
+  padding:22px 0;
+  border-bottom:1px solid rgba(250,248,244,0.06);
+}
+.method-step:last-child{border-bottom:none;}
+.step-num{
+  width:48px;height:48px;flex-shrink:0;
+  background:var(--cta);
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:20px;font-weight:800;color:#fff;
+  box-shadow:0 4px 14px var(--cta-glow);
+  position:relative;z-index:1;
+}
+.step-body h4{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:19px;font-weight:700;
+  color:#FAF8F4;margin-bottom:5px;
+}
+.step-body p{font-size:14px;color:rgba(250,248,244,0.55);line-height:1.65;font-weight:400;}
+
+
+.benefits-list{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+.benefit-item{
+  display:flex;align-items:flex-start;gap:16px;
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:20px 22px;
+  transition:box-shadow .2s;
+}
+.benefit-item:hover{box-shadow:0 4px 16px rgba(44,33,24,0.07);}
+.benefit-check{
+  width:30px;height:30px;flex-shrink:0;
+  background:var(--sage-bg);
+  border:1px solid var(--sage-l);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;
+}
+.benefit-check svg{width:14px;height:14px;stroke:var(--sage);}
+.benefit-text h4{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:17px;font-weight:700;color:var(--text);margin-bottom:4px;
+}
+.benefit-text p{font-size:14px;color:var(--muted);line-height:1.6;font-weight:400;}
+
+
+.testimonials{max-width:660px;margin:0 auto;display:flex;flex-direction:column;gap:16px;}
+.testi{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:28px 26px;
+  position:relative;
+}
+.testi-stars{color:var(--amber);font-size:15px;letter-spacing:2px;margin-bottom:12px;}
+.testi-text{
+  font-size:16px;color:var(--text);
+  line-height:1.7;margin-bottom:18px;
+  font-weight:400;
+
+}
+.testi-text::before{content:'\201C';color:var(--cta);font-size:1.2em;font-weight:700;}
+.testi-text::after{content:'\201D';color:var(--cta);font-size:1.2em;font-weight:700;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.author-av{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--dark),var(--dark2));
+  border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:16px;font-weight:700;color:#FAF8F4;flex-shrink:0;
+}
+.author-name{font-size:14px;font-weight:600;color:var(--text);}
+.author-detail{font-size:12px;color:var(--muted);font-weight:400;}
+.author-verified{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;color:var(--sage);font-weight:600;margin-top:2px;
+}
+.author-verified svg{width:12px;height:12px;stroke:var(--sage);}
+
+/* STATS */
+.stats-grid{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:0;max-width:480px;margin:44px auto 0;
+  border:1px solid var(--border);border-radius:12px;overflow:hidden;
+}
+.stat-item{
+  flex:1;min-width:120px;
+  text-align:center;padding:24px 16px;
+  background:var(--white);
+  border-right:1px solid var(--border);
+}
+.stat-item:last-child{border-right:none;}
+.stat-num{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:34px;font-weight:800;
+  color:var(--cta);line-height:1;
+}
+.stat-label{font-size:12px;color:var(--muted);margin-top:4px;font-weight:500;}
+
+
+.pricing-section{background:var(--dark);border-bottom:none;padding:72px 24px;}
+.price-card{
+  max-width:460px;margin:0 auto;
+  background:var(--dark2);
+  border:1px solid rgba(250,248,244,0.1);
+  border-radius:16px;
+  padding:44px 36px;
+  text-align:center;
+  position:relative;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+.price-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cta),var(--amber));
+}
+.price-corner{
+  position:absolute;top:18px;right:-30px;
+  background:var(--cta);
+  color:#fff;
+  font-size:10px;font-weight:700;letter-spacing:1.2px;
+  text-transform:uppercase;
+  padding:6px 44px;
+  transform:rotate(45deg);
+}
+
+.price-from{font-size:13px;color:rgba(250,248,244,0.35);margin-bottom:4px;font-weight:400;}
+.price-old{font-size:22px;color:rgba(250,248,244,0.2);text-decoration:line-through;margin-bottom:6px;font-weight:400;}
+.price-badge{
+  display:inline-block;
+  background:rgba(200,68,26,0.18);
+  border:1px solid rgba(200,68,26,0.35);
+  color:#F08060;
+  font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  padding:5px 16px;border-radius:100px;margin-bottom:16px;
+}
+.price-new{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:68px;font-weight:800;
+  color:#FAF8F4;line-height:1;margin-bottom:6px;
+  letter-spacing:-1px;
+}
+.price-new sup{font-size:24px;letter-spacing:0;vertical-align:super;font-weight:600;}
+.price-install{font-size:14px;color:rgba(250,248,244,0.35);margin-bottom:32px;font-weight:400;}
+
+.price-divider{width:100%;height:1px;background:rgba(250,248,244,0.07);margin-bottom:28px;}
+
+.price-includes{list-style:none;text-align:left;margin-bottom:32px;display:flex;flex-direction:column;gap:13px;}
+.price-includes li{
+  display:flex;align-items:center;gap:12px;
+  font-size:14px;color:rgba(250,248,244,0.7);font-weight:400;
+}
+.pi-check{
+  width:22px;height:22px;flex-shrink:0;
+  background:rgba(74,122,90,0.2);
+  border:1px solid rgba(107,158,122,0.4);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.pi-check svg{width:11px;height:11px;stroke:var(--sage-l);}
+
+.price-cta{
+  display:block;width:100%;
+  background:var(--cta);color:#fff;
+  padding:20px;border-radius:8px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:18px;font-weight:800;
+  text-align:center;text-decoration:none;
+  letter-spacing:0.2px;
+  box-shadow:0 6px 28px var(--cta-glow);
+  transition:background .2s, transform .15s, box-shadow .2s;
+  position:relative;overflow:hidden;
+  border:none;cursor:pointer;
+}
+.price-cta::after{
+  content:'';position:absolute;
+  top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);
+  animation:shine 3.5s infinite;
+}
+.price-cta:hover{background:var(--cta-h);transform:translateY(-2px);box-shadow:0 10px 36px var(--cta-glow);}
+
+.guarantee-box{
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(74,122,90,0.1);
+  border:1px solid rgba(74,122,90,0.2);
+  border-radius:10px;
+  padding:16px 18px;margin-top:20px;text-align:left;
+}
+.guarantee-box svg{width:30px;height:30px;flex-shrink:0;stroke:var(--sage-l);margin-top:1px;}
+.guarantee-box p{font-size:13px;color:rgba(250,248,244,0.55);line-height:1.6;font-weight:400;}
+.guarantee-box strong{color:rgba(250,248,244,0.85);font-weight:600;}
+
+/* ───────────────────────────────
+   FAQ
+──────────────────────────────── */
+.faq-list{max-width:620px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.faq-item{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+}
+.faq-q{
+  padding:20px 22px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:16px;font-weight:700;
+  color:var(--text);cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--cta);}
+.faq-icon{
+  width:26px;height:26px;flex-shrink:0;
+  background:var(--bg2);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;color:var(--cta);font-weight:300;
+  transition:transform .3s,background .2s;
+}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:var(--cta);color:#fff;}
+.faq-a{
+  padding:0 22px 20px;
+  font-size:14px;color:var(--muted);line-height:1.72;
+  font-weight:400;display:none;
+}
+.faq-item.open .faq-a{display:block;}
+
+
+.final-cta{
+  background:var(--cta);
+  padding:80px 24px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 120%,rgba(0,0,0,0.25) 0%,transparent 60%);
+}
+.final-cta::after{
+  content:'';position:absolute;
+  top:-60px;right:-60px;
+  width:240px;height:240px;border-radius:50%;
+  background:rgba(255,255,255,0.06);
+}
+.final-cta h2{
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:clamp(32px,5.5vw,52px);
+  font-weight:800;color:#fff;
+  line-height:1.1;letter-spacing:-0.3px;
+  margin-bottom:14px;position:relative;z-index:1;
+}
+.final-cta p{
+  font-size:17px;color:rgba(255,255,255,0.8);
+  max-width:480px;margin:0 auto 40px;
+  font-weight:400;line-height:1.65;
+  position:relative;z-index:1;
+}
+.final-cta .cta-btn{
+  background:#fff;color:var(--cta);
+  font-size:17px;
+  box-shadow:0 8px 36px rgba(0,0,0,0.2);
+  position:relative;z-index:1;
+}
+.final-cta .cta-btn:hover{background:#FAF8F4;color:var(--cta-h);}
+.final-cta .cta-sub{color:rgba(255,255,255,0.45);}
+
+/* ───────────────────────────────
+   FOOTER
+──────────────────────────────── */
+footer{
+  background:var(--dark);
+  border-top:1px solid rgba(250,248,244,0.06);
+  color:rgba(250,248,244,0.28);
+  text-align:center;
+  padding:32px 20px;
+  font-size:12px;line-height:2;
+  font-weight:400;letter-spacing:0.2px;
+}
+footer a{color:rgba(250,248,244,0.42);text-decoration:none;}
+footer a:hover{color:var(--amber-l);}
+
+.float-cta{
+  position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+  background:var(--cta);color:#fff;
+  padding:15px 40px;
+  font-family:'Bricolage Grotesque',sans-serif;
+  font-size:15px;font-weight:700;
+  text-decoration:none;border-radius:100px;
+  box-shadow:0 6px 28px var(--cta-glow),0 2px 4px rgba(0,0,0,0.2);
+  z-index:9999;white-space:nowrap;
+  transition:opacity .2s,transform .2s;
+}
+.float-cta.hide{opacity:0;pointer-events:none;}
+.float-cta:hover{background:var(--cta-h);}
+
+/* ───────────────────────────────
+   MOBILE
+──────────────────────────────── */
 @media(max-width:600px){
-  .hero{padding:40px 16px 36px}
-  .section{padding:36px 16px}
-  .price-card{padding:30px 20px}
-  .price-new{font-size:44px}
-  .pain-grid{grid-template-columns:1fr}
-  .stats-row{gap:20px}
-  .cta-btn{padding:16px 32px;font-size:17px}
-  .pricing-section{padding:40px 16px}
+  .hero{padding:52px 20px 48px;}
+  .section{padding:52px 20px;}
+  .pricing-section{padding:52px 20px;}
+  .final-cta{padding:60px 20px;}
+  .price-card{padding:32px 22px;}
+  .price-new{font-size:52px;}
+  .pain-grid{grid-template-columns:1fr;}
+  .stats-grid{flex-direction:column;border-radius:10px;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+  .stat-item:last-child{border-bottom:none;}
+  .proof-strip{gap:14px 24px;}
+  .cta-btn{padding:17px 36px;font-size:16px;}
+  .method-list::before{display:none;}
 }
-
 </style>
 </head>
 <body>
 
-<!-- Top Bar -->
-<div class="top-bar">
-  <span>⚡</span> Oferta por tempo limitado — Garanta seu exemplar com <span>desconto exclusivo</span>
+<!-- Announce Bar -->
+<div class="announce">
+  ⚡ Oferta por tempo limitado — Desconto de <b>61% ativo agora</b>
 </div>
 
-<a href="#comprar" class="botao-flutuante" id="floatingCTA">
-  COMPRAR AGORA
-</a>
-<!-- Hero Section -->
+<a href="#comprar" class="float-cta" id="floatBtn">COMPRAR AGORA — R$ 19,90</a>
+
+<!-- ── HERO ── -->
 <section class="hero">
-  <div class="container">
-    <span class="hero-badge">Ebook Digital</span>
-    <h1>Descubra o Método de 10 Minutos para <em>Desligar a Mente</em> e Viver com Leveza</h1>
-    <p class="hero-sub">Pare a ruminação mental, solte o que não serve mais e finalmente encontre paz interior — mesmo que você já tenha tentado de tudo.</p>
-    <div class="hero-features">
-      <div class="hero-feat">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-        Leitura rápida
+  <div class="hero-inner">
+    <div class="container">
+      <div class="hero-badge"><div class="badge-dot"></div>Ebook Digital</div>
+      <h1>Descubra o Método de<br>10 Minutos para<br><em>Desligar a Mente</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-sub">Pare a ruminação mental, solte o que não serve mais e finalmente encontre paz interior — mesmo que você já tenha tentado de tudo.</p>
+      <div class="hero-pills">
+        <div class="hero-pill">
+          <div class="pill-check"><svg fill="none" stroke="#fff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+          Leitura rápida
+        </div>
+        <div class="hero-pill">
+          <div class="pill-check"><svg fill="none" stroke="#fff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+          Resultados imediatos
+        </div>
+        <div class="hero-pill">
+          <div class="pill-check"><svg fill="none" stroke="#fff" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+          Garantia 15 dias
+        </div>
       </div>
-      <div class="hero-feat">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        Resultados imediatos
-      </div>
-      <div class="hero-feat">
-        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        Garantia 15 dias
-      </div>
+      <a href="#comprar" class="cta-btn">QUERO TRANSFORMAR MINHA MENTE</a>
+      <span class="cta-sub">Acesso imediato após a confirmação do pagamento</span>
     </div>
-    <a href="#comprar" class="cta-btn">QUERO TRANSFORMAR MINHA MENTE</a>
-    <span class="cta-sub">Acesso imediato ao ebook digital após a confirmação do pagamento</span>
   </div>
 </section>
 
-<!-- Urgency -->
+<!-- Social Proof Strip -->
+<div class="proof-strip">
+  <div class="proof-item"><span class="proof-num">2.347+</span>&nbsp;pessoas transformadas</div>
+  <div class="proof-item"><span class="proof-num">4.8</span>&nbsp;★ nota média</div>
+  <div class="proof-item"><span class="proof-num">97%</span>&nbsp;recomendam</div>
+</div>
+
+<!-- Urgency Bar -->
 <div class="urgency-bar">
-  <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+  <div class="pulse"></div>
   Mais de <strong>2.347 pessoas</strong> já transformaram suas vidas com este método
 </div>
 
-<!-- Pain Points -->
-<section class="section section-white">
+<!-- ── PAIN POINTS ── -->
+<section class="section s-light">
   <div class="container">
-    <h2 class="section-title">Você chega em casa mas sua <span>mente continua trabalhando</span>?</h2>
-    <p class="section-desc">Se pelo menos uma dessas causas fazem parte do seu dia a dia, este ebook foi feito para você.</p>
+    <span class="s-eyebrow">Você se identifica?</span>
+    <h2 class="s-title">Sua mente continua trabalhando<br>mesmo quando você <em>quer descansar</em>?</h2>
+    <div class="s-rule"></div>
+    <p class="s-desc">Se pelo menos uma dessas situações faz parte do seu dia a dia, este ebook foi feito para você.</p>
     <div class="pain-grid">
       <div class="pain-card">
         <span class="pain-icon">😰</span>
-        <p><strong>Sua mente não para</strong> — você chega em casa, mas os pensamentos continuam girando sem parar, revisando tudo o que aconteceu.</p>
+        <h4>Mente que não para</h4>
+        <p>Você chega em casa, mas os pensamentos continuam girando, revisando tudo o que aconteceu.</p>
       </div>
       <div class="pain-card">
         <span class="pain-icon">😴</span>
-        <p><strong>Insônia e cansaço mental</strong> — seu corpo quer descansar, mas sua mente insiste em trabalhar, mesmo de madrugada.</p>
+        <h4>Insônia e cansaço mental</h4>
+        <p>Seu corpo quer descansar, mas sua mente insiste em trabalhar, mesmo de madrugada.</p>
       </div>
       <div class="pain-card">
         <span class="pain-icon">💔</span>
-        <p><strong>Presa a relacionamentos do passado</strong> — você revive conversas, situações e sentimentos que já deveriam ter ficado para trás.</p>
+        <h4>Presa ao passado</h4>
+        <p>Você revive conversas e sentimentos que já deveriam ter ficado para trás.</p>
       </div>
       <div class="pain-card">
         <span class="pain-icon">😶</span>
-        <p><strong>Nunca está presente</strong> — mesmo com pessoas que ama, sua cabeça está sempre em outro lugar, pensando em problemas.</p>
+        <h4>Nunca presente de verdade</h4>
+        <p>Mesmo com pessoas que ama, sua cabeça está sempre em outro lugar.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Solution / Method -->
-<section class="section" style="background:var(--bg)">
+<!-- ── METHOD ── -->
+<section class="section s-dark">
   <div class="container">
-    <h2 class="section-title">O Método <span>"Respire, Observe, Solte"</span></h2>
-    <p class="section-desc">5 passos simples que você aplica em apenas 10 minutos por dia para desligar a mente e recuperar sua paz interior.</p>
-    <div class="method-steps">
+    <span class="s-eyebrow">O método</span>
+    <h2 class="s-title">"Respire, Observe, <em>Solte"</em></h2>
+    <div class="s-rule"></div>
+    <p class="s-desc">5 passos simples que você aplica em apenas 10 minutos por dia para desligar a mente e recuperar sua paz interior.</p>
+    <div class="method-list">
       <div class="method-step">
         <div class="step-num">1</div>
-        <div class="step-content">
+        <div class="step-body">
           <h4>Respire</h4>
           <p>Técnicas de respiração que acalmam o sistema nervoso em segundos e preparam sua mente para o desapego.</p>
         </div>
       </div>
       <div class="method-step">
         <div class="step-num">2</div>
-        <div class="step-content">
+        <div class="step-body">
           <h4>Observe</h4>
           <p>Aprenda a identificar os pensamentos repetitivos sem se prender a eles — como um observador consciente.</p>
         </div>
       </div>
       <div class="method-step">
         <div class="step-num">3</div>
-        <div class="step-content">
+        <div class="step-body">
           <h4>Solte</h4>
           <p>Exercícios práticos para liberar o apego emocional a situações, pessoas e pensamentos que não servem mais.</p>
         </div>
       </div>
       <div class="method-step">
         <div class="step-num">4</div>
-        <div class="step-content">
+        <div class="step-body">
           <h4>Redirecione</h4>
           <p>Canalize sua energia mental para o que realmente importa: seu presente, seus sonhos e seu bem-estar.</p>
         </div>
       </div>
       <div class="method-step">
         <div class="step-num">5</div>
-        <div class="step-content">
+        <div class="step-body">
           <h4>Desligue</h4>
           <p>Crie o hábito de desligar a mente conscientemente — dormindo melhor e vivendo com mais leveza.</p>
         </div>
@@ -301,42 +767,43 @@ footer a{color:var(--accent-light);text-decoration:none}
   </div>
 </section>
 
-<!-- Benefits -->
-<section class="section section-white">
+<!-- ── BENEFITS ── -->
+<section class="section s-warm">
   <div class="container">
-    <h2 class="section-title">O que você vai <span>conquistar</span></h2>
-    <p class="section-desc">Resultados reais que nossos leitores experimentam nas primeiras semanas.</p>
+    <span class="s-eyebrow">O que você conquista</span>
+    <h2 class="s-title">Resultados reais nas <em>primeiras semanas</em></h2>
+    <div class="s-rule"></div>
     <div class="benefits-list">
       <div class="benefit-item">
-        <div class="benefit-check"><svg fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+        <div class="benefit-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
         <div class="benefit-text">
           <h4>Noites de sono restaurador</h4>
           <p>Desligue a mente antes de dormir e acorde realmente descansado(a).</p>
         </div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-check"><svg fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+        <div class="benefit-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
         <div class="benefit-text">
           <h4>Liberdade emocional</h4>
           <p>Solte relacionamentos e situações do passado sem culpa ou arrependimento.</p>
         </div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-check"><svg fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+        <div class="benefit-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
         <div class="benefit-text">
           <h4>Presença no momento</h4>
           <p>Esteja 100% presente com quem você ama, sem a mente em outro lugar.</p>
         </div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-check"><svg fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+        <div class="benefit-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
         <div class="benefit-text">
           <h4>Menos ansiedade e estresse</h4>
           <p>Quebre o ciclo da ruminação mental e sinta a leveza de uma mente tranquila.</p>
         </div>
       </div>
       <div class="benefit-item">
-        <div class="benefit-check"><svg fill="none" stroke="white" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg></div>
+        <div class="benefit-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>
         <div class="benefit-text">
           <h4>Clareza para tomar decisões</h4>
           <p>Com a mente livre, você enxerga oportunidades que antes passavam despercebidas.</p>
@@ -346,269 +813,212 @@ footer a{color:var(--accent-light);text-decoration:none}
   </div>
 </section>
 
-<!-- Testimonials -->
-<section class="section" style="background:var(--bg)">
+<!-- ── TESTIMONIALS ── -->
+<section class="section s-light">
   <div class="container">
-    <h2 class="section-title">Veja o que nossos <span>leitores dizem</span></h2>
-    <p class="section-desc">Milhares de pessoas já transformaram sua relação com a mente.</p>
+    <span class="s-eyebrow">Depoimentos reais</span>
+    <h2 class="s-title">Veja o que nossos <em>leitores dizem</em></h2>
+    <div class="s-rule"></div>
     <div class="testimonials">
-      <div class="testimonial">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Eu não conseguia dormir sem ficar repassando tudo na minha cabeça. Depois de aplicar o método, em uma semana já senti diferença. Durmo em paz e acordo leve. Esse ebook mudou minha vida!</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">A</div>
-          <div class="author-info">
-            <span class="author-name">Ana Cláudia M.</span>
-            <span class="author-detail">Professora, 34 anos — São Paulo, SP</span>
-            <span class="verified"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Compra verificada</span>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Eu não conseguia dormir sem ficar repassando tudo na minha cabeça. Depois de aplicar o método, em uma semana já senti diferença. Durmo em paz e acordo leve. Esse ebook mudou minha vida!</p>
+        <div class="testi-author">
+          <div class="author-av">A</div>
+          <div>
+            <div class="author-name">Ana Cláudia M.</div>
+            <div class="author-detail">Professora, 34 anos — São Paulo, SP</div>
+            <div class="author-verified"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Compra verificada</div>
           </div>
         </div>
       </div>
-      <div class="testimonial">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Depois de um término difícil, passei meses presa naqueles pensamentos. Esse ebook me ensinou a soltar de verdade. Não é sobre esquecer, é sobre parar de sofrer. Recomendo de olhos fechados.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">F</div>
-          <div class="author-info">
-            <span class="author-name">Fernanda R. Santos</span>
-            <span class="author-detail">Designer, 28 anos — Belo Horizonte, MG</span>
-            <span class="verified"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Compra verificada</span>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Depois de um término difícil, passei meses presa naqueles pensamentos. Esse ebook me ensinou a soltar de verdade. Não é sobre esquecer, é sobre parar de sofrer. Recomendo de olhos fechados.</p>
+        <div class="testi-author">
+          <div class="author-av">F</div>
+          <div>
+            <div class="author-name">Fernanda R. Santos</div>
+            <div class="author-detail">Designer, 28 anos — Belo Horizonte, MG</div>
+            <div class="author-verified"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Compra verificada</div>
           </div>
         </div>
       </div>
-      <div class="testimonial">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Sou ansioso desde sempre. Já fiz terapia, meditação e nada parecia funcionar de verdade. Esse método é diferente porque é prático e direto ao ponto. 10 minutos por dia e já sinto uma paz que não sentia há anos.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">R</div>
-          <div class="author-info">
-            <span class="author-name">Ricardo Oliveira</span>
-            <span class="author-detail">Empreendedor, 41 anos — Curitiba, PR</span>
-            <span class="verified"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Compra verificada</span>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Sou ansioso desde sempre. Já fiz terapia, meditação e nada parecia funcionar de verdade. Esse método é diferente porque é prático e direto ao ponto. 10 minutos por dia e já sinto uma paz que não sentia há anos.</p>
+        <div class="testi-author">
+          <div class="author-av">R</div>
+          <div>
+            <div class="author-name">Ricardo Oliveira</div>
+            <div class="author-detail">Empreendedor, 41 anos — Curitiba, PR</div>
+            <div class="author-verified"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Compra verificada</div>
           </div>
         </div>
       </div>
-      <div class="testimonial">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Li em uma tarde e já comecei a aplicar no mesmo dia. O passo 3 (Soltar) foi transformador para mim. Parece que tirei um peso das costas que carregava sem perceber. Vale cada centavo!</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">J</div>
-          <div class="author-info">
-            <span class="author-name">Juliana Costa</span>
-            <span class="author-detail">Enfermeira, 31 anos — Rio de Janeiro, RJ</span>
-            <span class="verified"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Compra verificada</span>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Li em uma tarde e já comecei a aplicar no mesmo dia. O passo 3 (Soltar) foi transformador para mim. Parece que tirei um peso das costas que carregava sem perceber. Vale cada centavo!</p>
+        <div class="testi-author">
+          <div class="author-av">J</div>
+          <div>
+            <div class="author-name">Juliana Costa</div>
+            <div class="author-detail">Enfermeira, 31 anos — Rio de Janeiro, RJ</div>
+            <div class="author-verified"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Compra verificada</div>
           </div>
         </div>
       </div>
-      <div class="testimonial">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
-        <p class="testimonial-text">Confesso que comprei desconfiada, mas me surpreendi. A linguagem é simples, os exercícios são fáceis e o resultado aparece rápido. Minha única crítica é que queria que fosse mais longo! Quero mais conteúdo assim.</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">M</div>
-          <div class="author-info">
-            <span class="author-name">Mariana L. Ferreira</span>
-            <span class="author-detail">Estudante, 23 anos — Fortaleza, CE</span>
-            <span class="verified"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Compra verificada</span>
+      <div class="testi">
+        <div class="testi-stars">★★★★☆</div>
+        <p class="testi-text">Confesso que comprei desconfiada, mas me surpreendi. A linguagem é simples, os exercícios são fáceis e o resultado aparece rápido. Minha única crítica é que queria que fosse mais longo! Quero mais conteúdo assim.</p>
+        <div class="testi-author">
+          <div class="author-av">M</div>
+          <div>
+            <div class="author-name">Mariana L. Ferreira</div>
+            <div class="author-detail">Estudante, 23 anos — Fortaleza, CE</div>
+            <div class="author-verified"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Compra verificada</div>
           </div>
         </div>
       </div>
-      <div class="testimonial">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Comprei para minha esposa e acabei lendo também. Nós dois aplicamos o método juntos antes de dormir e nossa qualidade de vida melhorou demais. Dormimos melhor e brigamos menos. Obrigado!</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">C</div>
-          <div class="author-info">
-            <span class="author-name">Carlos Eduardo S.</span>
-            <span class="author-detail">Engenheiro, 38 anos — Brasília, DF</span>
-            <span class="verified"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> Compra verificada</span>
+      <div class="testi">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Comprei para minha esposa e acabei lendo também. Nós dois aplicamos o método juntos antes de dormir e nossa qualidade de vida melhorou demais. Dormimos melhor e brigamos menos. Obrigado!</p>
+        <div class="testi-author">
+          <div class="author-av">C</div>
+          <div>
+            <div class="author-name">Carlos Eduardo S.</div>
+            <div class="author-detail">Engenheiro, 38 anos — Brasília, DF</div>
+            <div class="author-verified"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Compra verificada</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="stats-row">
-      <div class="stat-item">
-        <div class="stat-num">4.8</div>
-        <div class="stat-label">Nota media</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">2.347+</div>
-        <div class="stat-label">Leitores</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">97%</div>
-        <div class="stat-label">Recomendam</div>
-      </div>
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-num">4.8</div><div class="stat-label">Nota média</div></div>
+      <div class="stat-item"><div class="stat-num">2.347+</div><div class="stat-label">Leitores</div></div>
+      <div class="stat-item"><div class="stat-num">97%</div><div class="stat-label">Recomendam</div></div>
     </div>
   </div>
 </section>
 
-<!-- Pricing -->
+<!-- ── PRICING ── -->
 <section class="pricing-section" id="comprar">
   <div class="container">
-    <h2 class="section-title">Garanta seu acesso <span>agora</span></h2>
-    <p class="section-desc">Invista em você por menos do que uma pizza. Sua mente merece esse cuidado.</p>
+    <span class="s-eyebrow" style="color:var(--amber-l)">Investimento</span>
+    <h2 class="s-title" style="color:#FAF8F4">Garanta seu acesso <em>agora</em></h2>
+    <div class="s-rule" style="background:var(--amber)"></div>
+    <p class="s-desc">Invista em você por menos do que uma pizza. Sua mente merece esse cuidado.</p>
     <div class="price-card">
-      <p class="price-label">De <span class="price-old">R$ 32,04</span></p>
-      <p style="font-size:14px;color:var(--urgency);font-weight:600;margin:8px 0 4px">DESCONTO DE 61% — Apenas hoje</p>
-      <p class="price-new"><span class="currency">R$</span>19<small>,90</small></p>
-      <p class="price-installments">ou 4x de R$ 4,97 sem juros</p>
+      <div class="price-corner">OFERTA</div>
+      <p class="price-from">De <span class="price-old">R$ 32,04</span></p>
+      <div class="price-badge">DESCONTO DE 61% — Apenas hoje</div>
+      <div class="price-new"><sup>R$</sup>19<sup style="font-size:22px">,90</sup></div>
+      <p class="price-install">ou 4× de R$ 4,97 sem juros</p>
       <div class="price-divider"></div>
       <ul class="price-includes">
-        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Ebook "O Poder de Desligar a Mente." (10 capitulos)</li>
-        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Metodo passo a passo de 10 minutos em PDF</li>
-        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Exercicios praticos para cada etapa</li>
-        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Acesso imediato apos a compra</li>
-        <li><svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg> Compativel com celular, tablet e PC</li>
+        <li><div class="pi-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>Ebook "O Poder de Desligar a Mente" (10 capítulos)</li>
+        <li><div class="pi-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>Método passo a passo de 10 minutos em PDF</li>
+        <li><div class="pi-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>Exercícios práticos para cada etapa</li>
+        <li><div class="pi-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>Acesso imediato após a compra</li>
+        <li><div class="pi-check"><svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg></div>Compatível com celular, tablet e PC</li>
       </ul>
-      <a href="https://pay.kiwify.com.br/Zzryo42" class="cta-btn" style="width:100%;display:block;text-align:center">COMPRAR AGORA — R$19,90</a>
-      <div class="guarantee">
-        <svg fill="none" stroke="var(--success)" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <div class="guarantee-text"><strong>Garantia incondicional de 15 dias.</strong> Se por qualquer motivo voce nao gostar, devolvemos 100% do seu dinheiro. Sem perguntas.</div>
+      <a href="https://pay.kiwify.com.br/Zzryo42" class="price-cta">COMPRAR AGORA — R$ 19,90</a>
+      <div class="guarantee-box">
+        <svg fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <p><strong>Garantia incondicional de 15 dias.</strong> Se por qualquer motivo você não gostar, devolvemos 100% do seu dinheiro. Sem perguntas.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section section-white">
+<!-- ── FAQ ── -->
+<section class="section s-warm">
   <div class="container">
-    <h2 class="section-title">Perguntas <span>frequentes</span></h2>
+    <span class="s-eyebrow">Dúvidas</span>
+    <h2 class="s-title">Perguntas <em>frequentes</em></h2>
+    <div class="s-rule"></div>
     <div class="faq-list">
       <div class="faq-item">
-        <div class="faq-q">O ebook e digital? Como recebo?</div>
-        <div class="faq-a">Sim! Apos a confirmacao do pagamento, voce recebe o acesso imediato por e-mail. Pode ler no celular, tablet ou computador.</div>
+        <div class="faq-q">O ebook é digital? Como recebo? <div class="faq-icon">+</div></div>
+        <div class="faq-a">Sim! Após a confirmação do pagamento, você recebe o acesso imediato por e-mail. Pode ler no celular, tablet ou computador.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Em quanto tempo vou sentir resultados?</div>
-        <div class="faq-a">A maioria dos leitores relata sentir diferenca ja na primeira semana de pratica. O metodo foi criado para ser simples e aplicavel no mesmo dia da leitura.</div>
+        <div class="faq-q">Em quanto tempo vou sentir resultados? <div class="faq-icon">+</div></div>
+        <div class="faq-a">A maioria dos leitores relata sentir diferença já na primeira semana de prática. O método foi criado para ser simples e aplicável no mesmo dia da leitura.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Preciso ter experiencia com meditacao?</div>
-        <div class="faq-a">Nao! O metodo e indicado para iniciantes. Voce nao precisa de nenhuma experiencia previa. Tudo e explicado de forma clara e passo a passo.</div>
+        <div class="faq-q">Preciso ter experiência com meditação? <div class="faq-icon">+</div></div>
+        <div class="faq-a">Não! O método é indicado para iniciantes. Você não precisa de nenhuma experiência prévia. Tudo é explicado de forma claro e passo a passo.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">E se eu nao gostar?</div>
-        <div class="faq-a">Voce tem 15 dias de garantia incondicional. Se nao ficar satisfeito(a), devolvemos 100% do valor investido, sem perguntas e sem burocracia.</div>
+        <div class="faq-q">E se eu não gostar? <div class="faq-icon">+</div></div>
+        <div class="faq-a">Você tem 15 dias de garantia incondicional. Se não ficar satisfeito(a), devolvemos 100% do valor investido, sem perguntas e sem burocracia.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Funciona para ansiedade?</div>
-        <div class="faq-a">O ebook aborda diretamente a ruminacao mental, que e uma das maiores causas da ansiedade. Muitos leitores relatam reducao significativa dos sintomas de ansiedade apos aplicar o metodo.</div>
+        <div class="faq-q">Funciona para ansiedade? <div class="faq-icon">+</div></div>
+        <div class="faq-a">O ebook aborda diretamente a ruminação mental, que é uma das maiores causas da ansiedade. Muitos leitores relatam redução significativa dos sintomas após aplicar o método.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Quanto tempo leva para ler?</div>
-        <div class="faq-a">O ebook tem 10 capitulos e pode ser lido em uma tarde. Mas o mais importante sao os exercicios praticos, que levam apenas 10 minutos por dia.</div>
+        <div class="faq-q">Quanto tempo leva para ler? <div class="faq-icon">+</div></div>
+        <div class="faq-a">O ebook tem 10 capítulos e pode ser lido em uma tarde. Mas o mais importante são os exercícios práticos, que levam apenas 10 minutos por dia.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Final CTA -->
+<!-- ── FINAL CTA ── -->
 <section class="final-cta">
-  <div class="container">
-    <h2>Sua mente merece descansar.</h2>
-    <p>Pare de carregar o peso do passado. Comece hoje a viver com mais leveza, presenca e paz interior.</p>
-    <a href="#comprar" class="cta-btn">QUERO MEU EBOOK — R$ 19,90</a>
-    <span class="cta-sub">Pagamento seguro. Acesso imediato. Garantia de 15 dias.</span>
-  </div>
+  <h2>Sua mente merece descansar.</h2>
+  <p>Pare de carregar o peso do passado. Comece hoje a viver com mais leveza, presença e paz interior.</p>
+  <a href="#comprar" class="cta-btn">QUERO MEU EBOOK — R$ 19,90</a>
+  <span class="cta-sub">Pagamento seguro · Acesso imediato · Garantia de 15 dias</span>
 </section>
 
-<!-- Footer -->
+<!-- ── FOOTER ── -->
 <footer>
-  <div class="container">
-    <p>O Poder de Soltar &copy; 2026 — Todos os direitos reservados.</p>
-    <p>Este produto nao substitui acompanhamento medico ou psicologico profissional.</p>
-    <p style="margin-top:8px"><a href="#">Termos de Uso</a> &middot; <a href="#">Politica de Privacidade</a> &middot; <a href="#">Contato</a></p>
-  </div>
+  <p>O Poder de Soltar © 2026 — Todos os direitos reservados.</p>
+  <p>Este produto não substitui acompanhamento médico ou psicológico profissional.</p>
+  <p style="margin-top:8px"><a href="#">Termos de Uso</a> · <a href="#">Política de Privacidade</a> · <a href="#">Contato</a></p>
 </footer>
 
 <script>
 // FAQ Accordion
 document.querySelectorAll('.faq-q').forEach(function(q){
   q.addEventListener('click',function(){
-    var item = this.parentElement;
-    var wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open')});
-    if(!wasOpen) item.classList.add('open');
+    var item=this.parentElement;
+    var was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+    if(!was) item.classList.add('open');
   });
 });
 
-// Smooth scroll for anchor links
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener('click',function(e){
-    var target = document.querySelector(this.getAttribute('href'));
-    if(target){
-      e.preventDefault();
-      target.scrollIntoView({behavior:'smooth',block:'start'});
-    }
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
   });
 });
 
-// BOTÃO FLUTUANTE
-document.addEventListener("DOMContentLoaded", function(){
-
-  const floatingBtn = document.getElementById("floatingCTA");
-
-  const heroBtn = document.querySelector('.hero .cta-btn');
-  const priceBtn = document.querySelector('#comprar .cta-btn');
-  const finalBtn = document.querySelector('.final-cta .cta-btn');
-
-  function elementVisible(el){
-      if(!el) return false;
-      const rect = el.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom > 0;
+(function(){
+  var btn=document.getElementById('floatBtn');
+  var refs=[
+    document.querySelector('.hero .cta-btn'),
+    document.querySelector('#comprar .price-cta'),
+    document.querySelector('.final-cta .cta-btn')
+  ];
+  function visible(el){
+    if(!el)return false;
+    var r=el.getBoundingClientRect();
+    return r.top<window.innerHeight&&r.bottom>0;
   }
-
-  function checkButtons(){
-
-      const heroVisible = elementVisible(heroBtn);
-      const priceVisible = elementVisible(priceBtn);
-      const finalVisible = elementVisible(finalBtn);
-
-      if(heroVisible || priceVisible || finalVisible){
-          floatingBtn.classList.add("hide");
-      }else{
-          floatingBtn.classList.remove("hide");
-      }
-
+  function check(){
+    if(refs.some(visible))btn.classList.add('hide');
+    else btn.classList.remove('hide');
   }
-
-  window.addEventListener("scroll", checkButtons);
-
-  checkButtons();
-
-});
-// BOTÃO FLUTUANTE
+  window.addEventListener('scroll',check,{passive:true});
+  check();
+})();
 </script>
-
-
 </body>
-
-<style>
-.botao-flutuante{
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#16a34a;
-  color:white;
-  padding:16px 24px;
-  font-size:18px;
-  font-weight:800;
-  text-decoration:none;
-  border-radius:50px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.25);
-  z-index:9999;
-  transition:all .1s ease;
-}
-
-.botao-flutuante.hide{
-  opacity:0;
-  pointer-events:none;
-}
-
-.botao-flutuante:hover{
-  background:#15803d;
-}
-</style>
-
 </html>
